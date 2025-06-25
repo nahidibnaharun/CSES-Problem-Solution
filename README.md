@@ -9,9 +9,13 @@ This repository contains my solutions to problems from the [CSES Problem Set](ht
 ## 📂 Folder Structure
 
 CSES-Problem-Solution/
+
 ├── Introductory_Problems/
+
 │ └── Coin_Piles.cpp
+
 ├── Sorting_and_Searching/
+
 │ └── Subarray_Sums_II.cpp
 
 yaml
