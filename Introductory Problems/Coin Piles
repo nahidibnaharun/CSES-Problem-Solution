@@ -27,5 +27,5 @@ int main(){
     while(t--){
         solve();
         cout<<endl;
-    }    
+    } 
 return 0;
