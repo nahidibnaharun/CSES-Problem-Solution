@@ -2,8 +2,8 @@
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
-// const int INF=500;
-const ll INF = 2e5+5;
+using ui = unsigned int;
+const ll INF=(1LL<<62);
 /*
 //      _   __  ___  __   __ _______ _______
 //     / | / / / _ \ \ \__\ \\__  __\\  __  \ 
@@ -15,16 +15,17 @@ ID: mdnahidibnaharun
 LANG: C++
 TASK: practice 
 */
+
 void solve(){
-    int n;cin>>n;
-    int x=0;
-    for(int i=1;i<=n;i++)x^=i;
-    for(int i=0;i<n-1;i++){
-        int a;
-        cin>>a;
-        x^=a;
-    }
-    cout<<x;
+ll n;cin>>n;
+ll ans=(n*(n+1))/2;
+n--;
+while(n--){
+    int x;cin>>x;
+    ans-=x;
+}
+cout<<ans;
+
 
 }
 int main(){
@@ -34,6 +35,6 @@ int main(){
     // while(t--){
         solve();
     //     cout<<endl;
-    // }    
+    // }
 return 0;
 }
