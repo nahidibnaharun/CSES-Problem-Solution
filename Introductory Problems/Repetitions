@@ -2,8 +2,8 @@
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
-// const int INF=500;
-const ll INF = 2e5+5;
+using ui = unsigned int;
+const ll INF=(1LL<<62);
 /*
 //      _   __  ___  __   __ _______ _______
 //     / | / / / _ \ \ \__\ \\__  __\\  __  \ 
@@ -15,15 +15,21 @@ ID: mdnahidibnaharun
 LANG: C++
 TASK: practice 
 */
+
 void solve(){
-    string s;cin>>s;
-    int n=s.size(),ans=0;
-    for(int i=0;i<n;){
-        int c=0;
-        char x=s[i];
-        while(x==s[i] && i<n){c++;i++;}
-        ans=max(ans,c);
-    }cout<<ans;
+string s;cin>>s;
+int mx=INT_MIN,n=s.size();
+for(int i=0;i<n;i++){
+    int ans=1;
+    while(s[i]==s[i+1] && i+1<n){
+        ans++;
+        i++;
+    }
+    mx=max(ans,mx);
+}
+cout<<mx;
+
+
 }
 int main(){
     ios_base::sync_with_stdio(false);
@@ -32,6 +38,6 @@ int main(){
     // while(t--){
         solve();
     //     cout<<endl;
-    // }    
+    // }
 return 0;
 }
