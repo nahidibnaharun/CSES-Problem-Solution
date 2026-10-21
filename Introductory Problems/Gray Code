@@ -1,0 +1,57 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using ui = unsigned int;
+const int INF = 1e9+5;
+const int MOD = 1000000007;
+const int MAX = 1e5+5;
+/*
+//      _   __  ___  __   __ _______ _______
+//     / | / / / _ \ \ \__\ \\__  __\\  __  \
+//    /  |/ / / /_\ \ \  ___ \  \ \   \ \ \  \
+//   / /|  / / ____  \ \ \  \ \ _\ \___\ \/  /
+//  /_/ |_/ /_/    \__\ \_\  \_\\______\\___/
+//
+// ID: mdnahidibnaharun
+// LANG: C++
+// TASK: practice
+*/
+
+
+void solve(){
+   
+   int n;
+   cin>>n;
+   vector<int>ans={0};
+
+   for(int i=0;i<n;i++){
+    int sz=ans.size();
+    for(int j=sz-1;j>=0;j--){
+        ans.push_back(ans[j]|(1<<i));
+    }
+   }
+   
+
+for(int x:ans){
+   for(int i=n-1;i>=0;i--){
+    cout<<((x>>i)&1);
+   }cout<<endl;
+}
+
+}
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    // int tc;
+    // cin >> tc;
+    // for(int tcase=1;tcase<=tc;tcase++){
+        solve();
+    //     cout<<endl;
+    // }
+
+    return 0;
+}
