@@ -1,0 +1,79 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using ui = unsigned int;
+const int INF = 1e9+5;
+const int MOD = 1000000007;
+const int MAX = 1e5+5;
+
+/*
+//      _   __  ___  __   __ _______ _______
+//     / | / / / _ \ \ \__\ \\__  __\\  __  \
+//    /  |/ / / /_\ \ \  ___ \  \ \   \ \  \  \
+//   / /|  / / ____  \ \  \  \ \ _\ \___\ \/  /
+//  /_/ |_/ /_/    \__\ \_\  \_\\______\\___/
+//
+// ID: mdnahidibnaharun
+// LANG: C++
+// TASK: practice
+*/
+
+vector<string>chess(8);
+int ans=0;
+
+int queen[8];
+void permutation(int i ){
+    if(i==8){
+        ans++;
+        return;
+    }
+
+    for (int j = 0; j < 8; j++) {
+        if (chess[i][j] == '*') continue;
+
+        bool ok = true;
+
+        for (int r = 0; r < i; r++) {
+            if (queen[r] == j ||
+                abs(i - r) == abs(j - queen[r])) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            queen[i] = j;
+            permutation(i + 1);
+        }
+    }
+
+}
+void solve()
+{
+    for(auto &x:chess)cin>>x;
+
+
+    permutation(0);
+    cout<<ans;
+
+    
+
+
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    // ll t;
+    // cin >> t;
+
+    // while(t--){
+        solve();
+    // }
+
+    return 0;
+}
