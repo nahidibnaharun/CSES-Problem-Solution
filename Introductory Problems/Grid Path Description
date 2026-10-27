@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using ui = unsigned int;
+const int INF = 1e9+5;
+const int MOD = 1000000007;
+const int MAX = 1e5+5;
+
+/*
+//      _   __  ___  __   __ _______ _______
+//     / | / / / _ \ \ \__\ \\__  __\\  __  \
+//    /  |/ / / /_\ \ \  ___ \  \ \   \ \  \  \
+//   / /|  / / ____  \ \  \  \ \ _\ \___\ \/  /
+//  /_/ |_/ /_/    \__\ \_\  \_\\______\\___/
+//
+// ID: mdnahidibnaharun
+// LANG: C++
+// TASK: practice
+*/
+string s;
+int ans=0;
+
+bool vis[7][7];
+int dx[]={1,-1,0,0},dy[]={0,0,-1,1};
+char dir[]={'D','U','L','R'};
+
+void dfs(int x,int y , int step){
+    if(x==6 && y==0){
+        if(step==48){
+            ans++;
+        }
+        return;
+    }
+    if(step==48)return;
+
+
+    if((x==0 || vis[x-1][y]) && (x==6 || vis[x+1][y]) && y>0 && !vis[x][y-1] && y<6 && !vis[x][y+1])return;
+    if((y==0 || vis[x][y-1]) && (y==6 || vis[x][y+1]) && x>0 && !vis[x-1][y] && x<6 && !vis[x+1][y])return;
+
+    for(int i=0 ;i<4;i++){
+
+        if(s[step]!='?' && s[step]!=dir[i])continue;
+
+
+        int nx=x+dx[i];
+        int ny=y+dy[i];
+
+        if(nx<0 || nx>=7 || ny<0 || ny>=7)continue;
+        if(vis[nx][ny])continue;
+        vis[nx][ny]=true;
+        dfs(nx,ny,step+1);
+        vis[nx][ny]=false;
+    }
+}
+void solve(){
+    cin>>s;
+    vis[0][0] = true;
+    dfs(0,0,0);
+    cout<<ans;
+}
+
+
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    // ll t;
+    // cin >> t;
+
+    // while(t--){
+        solve();
+    //     cout<<endl;
+    // }
+
+    return 0;
+}
